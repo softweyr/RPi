@@ -32,14 +32,10 @@ def writeReg(spi, reg, val):
 def setup23s17():
   spi = spidev.SpiDev()
   spi.open(0,0)
-  #spi.max_speed_hz=7629
   spi.max_speed_hz=1000000
 
-  #writeReg(spi, IODIRA, 0) # all port A pins output
+  writeReg(spi, IODIRA, 0) # all port A pins output
   writeReg(spi, IODIRB, 0) # all port B pins output
-
-  #writeReg(spi, IODIRA, 0) # Once again...
-  writeReg(spi, IODIRB, 0) # in two-part harmony
 
   return spi
 
